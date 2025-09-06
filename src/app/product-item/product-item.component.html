@@ -1,0 +1,12 @@
+@if(product()){
+<ion-item [routerLink]="['/products', product().id]">
+  <ion-thumbnail slot="start">
+    <img [src]="getImage()" />
+  </ion-thumbnail>
+  <ion-label>
+    <h2>{{ product().name }}</h2>
+    <p>{{ product().description }}</p>
+    <p>{{ product().price }}</p>
+  </ion-label>
+</ion-item>
+}

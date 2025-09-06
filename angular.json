@@ -9,6 +9,12 @@
         "@ionic/angular-toolkit:page": {
           "styleext": "scss",
           "standalone": true
+        },
+        "ionic-angular:component": {
+          "skiptest": true
+        },
+        "ionic-angular:page": {
+          "skiptest": true
         }
       },
       "root": "",
@@ -23,9 +29,7 @@
               "browser": ""
             },
             "index": "src/index.html",
-            "polyfills": [
-              "src/polyfills.ts"
-            ],
+            "polyfills": ["src/polyfills.ts"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
