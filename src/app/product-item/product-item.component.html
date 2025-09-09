@@ -1,12 +1,21 @@
 @if(product()){
-<ion-item [routerLink]="['/product-detail', product().id]">
-  <ion-thumbnail slot="start">
-    <img [src]="getImage()" />
-  </ion-thumbnail>
-  <ion-label>
-    <h2>{{ product().name }}</h2>
-    <p>{{ product().description }}</p>
-    <p>{{ product().price }}</p>
-  </ion-label>
-</ion-item>
+<ion-card [routerLink]="['/product-detail', product().id]">
+  <img
+    [src]="getImage()"
+    [alt]="product().name || 'Imagen del producto'"
+    style="object-fit: cover; width: 100%; height: 200px"
+  />
+  <ion-card-header>
+    <ion-card-subtitle> {{ product().price | currency }}</ion-card-subtitle>
+    <ion-card-title>{{ product().name | titlecase }}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    {{ product().description }}
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil fuga a,
+    facilis unde inventore mollitia consequuntur itaque nemo repellat
+    blanditiis!
+    <h1>{{ `Alvaro Hola` | demo }}</h1>
+  </ion-card-content>
+</ion-card>
 }

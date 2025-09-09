@@ -1,5 +1,10 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+} from '@angular/core';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
   IonContent,
@@ -27,18 +32,14 @@ import { ProductItemComponent } from '../product-item/product-item.component';
     ProductItemComponent,
     IonButtons,
     IonMenuButton,
+    AsyncPipe,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductsPage implements OnInit {
   productsService = inject(ProductService);
 
-  products: any[] = [];
+  products$ = this.productsService.getProducts(); // Observable
 
   ngOnInit(): void {}
-
-  constructor() {
-    this.productsService.getProducts().subscribe((products) => {
-      this.products = products;
-    });
-  }
 }

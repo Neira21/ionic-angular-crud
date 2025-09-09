@@ -22,4 +22,8 @@ export const routes: Routes = [
         (m) => m.ProductDetailPage
       ),
   },
+  {
+    path: 'form-product',
+    loadComponent: () => import('./form-product/form-product.page').then( m => m.FormProductPage)
+  },
 ];
