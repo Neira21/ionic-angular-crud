@@ -1,5 +1,5 @@
 @if(product()){
-<ion-item [routerLink]="['/products', product().id]">
+<ion-item [routerLink]="['/product-detail', product().id]">
   <ion-thumbnail slot="start">
     <img [src]="getImage()" />
   </ion-thumbnail>

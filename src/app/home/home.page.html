@@ -1,13 +1,16 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title> Blank </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Contenido Principal</ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -18,4 +21,6 @@
       <a rel="noopener noreferrer" [routerLink]="['/products']">Productos</a>
     </p>
   </div>
+
+  <ion-button [routerLink]="['/products']">Ver Productos</ion-button>
 </ion-content>

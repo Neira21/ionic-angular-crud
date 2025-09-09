@@ -6,6 +6,8 @@ import {
   IonHeader,
   IonTitle,
   IonToolbar,
+  IonMenuButton,
+  IonButtons,
 } from '@ionic/angular/standalone';
 import { ProductService } from '../product.service';
 import { ProductItemComponent } from '../product-item/product-item.component';
@@ -23,6 +25,8 @@ import { ProductItemComponent } from '../product-item/product-item.component';
     CommonModule,
     FormsModule,
     ProductItemComponent,
+    IonButtons,
+    IonMenuButton,
   ],
 })
 export class ProductsPage implements OnInit {
