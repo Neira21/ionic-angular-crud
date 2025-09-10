@@ -1,4 +1,11 @@
-import { Component, inject, input, OnInit } from '@angular/core';
+import {
+  Component,
+  inject,
+  input,
+  OnInit,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import {
   IonItem,
   IonThumbnail,
@@ -8,11 +15,15 @@ import {
   IonCardHeader,
   IonCardSubtitle,
   IonCardTitle,
+  IonButton,
+  IonIcon,
 } from '@ionic/angular/standalone';
 import { RouterLink } from '@angular/router';
 import { ProductService } from '../product.service';
-import { CurrencyPipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
+import { CurrencyPipe, TitleCasePipe } from '@angular/common';
 import { DemoPipe } from '../demo-pipe';
+import { addIcons } from 'ionicons';
+import { trash } from 'ionicons/icons';
 
 @Component({
   selector: 'app-product-item',
@@ -30,19 +41,34 @@ import { DemoPipe } from '../demo-pipe';
     IonCardSubtitle,
     IonCardTitle,
     CurrencyPipe,
-    UpperCasePipe,
     TitleCasePipe,
     DemoPipe,
+    IonButton,
+    IonIcon,
   ],
 })
 export class ProductItemComponent implements OnInit {
   productService = inject(ProductService);
-  constructor() {}
-  ngOnInit() {}
 
   product = input<any>();
 
+  // Evento para solicitar eliminación (solo emite, no ejecuta)
+  @Output() deleteRequested = new EventEmitter<number>();
+
+  constructor() {
+    // Registrar el icono de eliminar
+    addIcons({ trash });
+  }
+
+  ngOnInit() {}
+
   getImage() {
     return this.productService.getImage(this.product());
+  }
+
+  // Solo emite evento, no hace la llamada HTTP
+  onDeleteClick() {
+    const productId = this.product().id;
+    this.deleteRequested.emit(productId);
   }
 }

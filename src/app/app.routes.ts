@@ -24,6 +24,12 @@ export const routes: Routes = [
   },
   {
     path: 'form-product',
-    loadComponent: () => import('./form-product/form-product.page').then( m => m.FormProductPage)
+    loadComponent: () =>
+      import('./form-product/form-product.page').then((m) => m.FormProductPage),
+  },
+  {
+    path: 'form-product/:id',
+    loadComponent: () =>
+      import('./form-product/form-product.page').then((m) => m.FormProductPage),
   },
 ];
